@@ -18,10 +18,16 @@ const HeroSection = () => {
                 Contact Me
               </button>
             </Link>
-            <a href="" className="btn btn-outline rounded-full text-2xl">
+            <a
+              href="https://www.linkedin.com/in/md-atiar-rahman-a90109300/"
+              className="btn btn-outline rounded-full text-2xl"
+            >
               <FaLinkedin />
             </a>
-            <a href="" className="btn btn-outline rounded-full text-2xl">
+            <a
+              href="https://github.com/Atiar-Rahman"
+              className="btn btn-outline rounded-full text-2xl"
+            >
               <FaGithub />
             </a>
           </div>

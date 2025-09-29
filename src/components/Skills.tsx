@@ -1,6 +1,7 @@
 import { FaReact, FaDatabase, FaPython } from "react-icons/fa";
 import { SiDjango } from "react-icons/si";
 import {motion} from 'motion/react'
+import { FaGithub } from "react-icons/fa6";
 const Skills = () => {
   return (
     <section id="skills" className="py-16 bg-base-100">
@@ -16,7 +17,7 @@ const Skills = () => {
             <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
               <div className="bg-blue-500 h-3 rounded-full w-[75%]"></div>
             </div>
-            <p className="mt-2 text-sm">75%</p>
+            {/* <p className="mt-2 text-sm">75%</p> */}
           </motion.div>
 
           {/* Database */}
@@ -26,7 +27,7 @@ const Skills = () => {
             <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
               <div className="bg-purple-500 h-3 rounded-full w-[50%]"></div>
             </div>
-            <p className="mt-2 text-sm">50%</p>
+            {/* <p className="mt-2 text-sm">50%</p> */}
           </motion.div>
 
           {/* Python */}
@@ -36,7 +37,7 @@ const Skills = () => {
             <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
               <div className="bg-yellow-500 h-3 rounded-full w-[60%]"></div>
             </div>
-            <p className="mt-2 text-sm">60%</p>
+            {/* <p className="mt-2 text-sm">60%</p> */}
           </motion.div>
 
           {/* Django */}
@@ -46,7 +47,17 @@ const Skills = () => {
             <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
               <div className="bg-green-700 h-3 rounded-full w-[55%]"></div>
             </div>
-            <p className="mt-2 text-sm">55%</p>
+            {/* <p className="mt-2 text-sm">55%</p> */}
+          </motion.div>
+        
+        {/* Github */}
+          <motion.div whileHover={{scale:1.5}} className="p-6 bg-base-100 shadow-lg rounded-xl">
+            <FaGithub className="text-green-700 text-5xl mx-auto mb-4" />
+            <h3 className="text-xl font-semibold">Github</h3>
+            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
+              <div className="bg-green-700 h-3 rounded-full w-[60%]"></div>
+            </div>
+            {/* <p className="mt-2 text-sm">60%</p> */}
           </motion.div>
         </div>
 
