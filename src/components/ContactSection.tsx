@@ -1,6 +1,6 @@
 
 import ContactForm from './ContactForm';
-import { SlArrowDownCircle } from "react-icons/sl";
+import DownloadButton from './DownloadButton';
 const ContactSection = () => {
     return (
       <div className="flex flex-col md:flex-row justify-center items-center bg-base-100">
@@ -16,9 +16,7 @@ const ContactSection = () => {
           </p>
           <p className="text-xl">
             For more info. here's My
-            <span className="text-green-700 btn ml-3 text-xl">
-              Resume <SlArrowDownCircle />
-            </span>
+            <DownloadButton/>
           </p>
         </div>
         <div>

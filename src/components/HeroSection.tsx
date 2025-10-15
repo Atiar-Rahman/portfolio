@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import avator from '../../public/fotor-3d-avatar.webp'
+import avator from '../../public/atiar.jpg'
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 const HeroSection = () => {
     return (

@@ -1,5 +1,5 @@
 
-import avator  from '../../public/fotor-3d-avatar.webp'
+import avator  from '../../public/atiar.jpg'
 import {motion} from 'motion/react'
 const AboutMe = () => {
   return (
