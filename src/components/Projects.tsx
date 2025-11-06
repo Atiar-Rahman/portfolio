@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import hotel from '../../public/hotel.jpeg'
+import api from "../../public/APIs.png";
+import cancer from "../../public/cancer.png";
+import events from "../../public/events.jpeg";
 
 const Projects = () => {
   const projects = [
@@ -7,7 +11,7 @@ const Projects = () => {
       title: "StayBangla Hotel Management System",
       desc: "A full-stack hotel management platform featuring secure user authentication, responsive UI, and an integrated REST API backend.",
       tech: ["React", "Django REST API", "MySQL"],
-      img: "/public/hotel.jpeg",
+      img: hotel,
       link: "https://stay-bangla-mk4p.vercel.app/",
       link1: "https://github.com/Atiar-Rahman/stay_bangla_client",
     },
@@ -15,7 +19,7 @@ const Projects = () => {
       title: "StayBangla Backend API",
       desc: "Backend service for hotel management system with CRUD operations, authentication, and Swagger API documentation.",
       tech: ["Django REST Framework", "MySQL"],
-      img: "/public/APIs.png",
+      img: api,
       link: "https://hotel-management-blue-seven.vercel.app/swagger/",
       link1: "https://github.com/Atiar-Rahman/hotel_management",
     },
@@ -23,7 +27,7 @@ const Projects = () => {
       title: "Symptom-Based Multi-Cancer Detection Tool",
       desc: "A Django-based ML-powered web app that predicts the risk of three cancer types (Liver, Lung, Breast) based on patient symptoms.",
       tech: ["Django (MVT)", "Machine Learning", "MySQL"],
-      img: "/public/cancer.png",
+      img: cancer,
       link: "https://symtom-based-cancer-detection.onrender.com/",
       link1: "https://github.com/Atiar-Rahman/Symtom_based_Cancer_detection",
     },
@@ -31,7 +35,7 @@ const Projects = () => {
       title: "Events Management System",
       desc: "A Django application for event management, featuring role-based dashboards and participant registration for specific events.",
       tech: ["Django (MVT)", "MySQL"],
-      img: "/public/events.jpeg",
+      img: events,
       link: "https://events-management-system-uoyt.onrender.com/",
       link1: "https://github.com/Atiar-Rahman/events",
     },
