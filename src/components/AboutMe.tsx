@@ -1,70 +1,134 @@
+import { motion } from "framer-motion";
+import avatar from "../../public/atiar.jpg";
 
-import avator  from '../../public/atiar.jpg'
-import {motion} from 'motion/react'
 const AboutMe = () => {
   return (
-    <section id="about" className="py-16 mx-5 bg-base-100">
-      <div className="flex flex-col md:flex-row justify-center items-center">
-        {/* Profile Photo */}
-        <div className="md:w-1/3 flex-1 ">
+    <section
+      id="about"
+      className="py-20 px-6 md:px-16 bg-base-100 dark:bg-gray-400 text-base-900 dark:text-black transition-colors duration-300"
+    >
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        {/* Profile Image */}
+        <motion.div
+          className="md:w-1/3 flex justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <img
-            src={avator}
-            alt="Atiar"
-            className="w-2/3 rounded-full shadow-lg"
+            src={avatar}
+            alt="Md. Atiar Rahman"
+            className="w-2/3 md:w-3/4 rounded-full shadow-2xl border-4 border-primary/10 hover:scale-105 transition-transform duration-300"
           />
-        </div>
+        </motion.div>
 
-        {/* Text Content */}
-        <div className="md:w-2/3 flex-1 space-y-6">
-          {/* Bio */}
-          <h2 className="text-3xl font-bold">About Me</h2>
-          <p className="text-lg text-gray-700">
-            Hi, I'm Atiar, a passionate Web Developer specializing in React and
-            TypeScript. I love building interactive, responsive, and modern web
-            apps.
+        {/* About Text */}
+        <motion.div
+          className="md:w-2/3 space-y-8"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Heading */}
+          <h2 className="text-4xl font-extrabold mb-2 text-primary">
+            About Me
+          </h2>
+
+          {/* Intro Paragraph */}
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            Hello! I'm <span className="font-semibold">Md. Atiar Rahman</span>,
+            a passionate Web Developer who loves crafting dynamic, responsive,
+            and modern web applications. I specialize in{" "}
+            <span className="text-primary font-semibold">
+              React, TypeScript, and Python REST API
+            </span>
+            . My focus is on writing clean, efficient code and building
+            user-friendly digital experiences.
           </p>
+          <h1 className="text-2xl font-semibold mb-3 text-white">
+            Education:{" "}
+          </h1>
+          <p>
+            I am a student of Green University of bangladesh. Departments of
+            Computer science and Engineering. I am also successfully complete
+            Porgramming hero course.
+          </p>
+          
 
-          {/* Skills */}
+          {/* Skills Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-2">Skills</h3>
-            <div className="flex flex-wrap gap-2">
-              <motion.span whileHover={{scale:1.4}} className="px-3 py-1 bg-blue-200 rounded-full text-blue-800">
-                React
-              </motion.span>
-              <motion.span whileHover={{scale:1.4}} className="px-3 py-1 bg-blue-200 rounded-full text-blue-800">
-                TypeScript
-              </motion.span>
-              <motion.span whileHover={{scale:1.4}} className="px-3 py-1 bg-green-200 rounded-full text-green-800">
-                Python
-              </motion.span>
-              <motion.span whileHover={{scale:1.4}} className="px-3 py-1 bg-gray-200 rounded-full text-yellow-800">
-                Django-Rest Framework
-              </motion.span>
-              <motion.span whileHover={{scale:1.4}} className="px-3 py-1 bg-blue-200 rounded-full text-blue-800">
-                Tailwind CSS
-              </motion.span>
+            <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+              Core Skills
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                {
+                  name: "React",
+                  color:
+                    "bg-blue-200 text-blue-900 dark:bg-blue-800 dark:text-blue-100",
+                },
+                {
+                  name: "TypeScript",
+                  color:
+                    "bg-sky-200 text-sky-900 dark:bg-sky-800 dark:text-sky-100",
+                },
+                {
+                  name: "Python",
+                  color:
+                    "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100",
+                },
+                {
+                  name: "Django REST Framework",
+                  color:
+                    "bg-emerald-200 text-emerald-900 dark:bg-emerald-800 dark:text-emerald-100",
+                },
+                {
+                  name: "Tailwind CSS",
+                  color:
+                    "bg-cyan-200 text-cyan-900 dark:bg-cyan-800 dark:text-cyan-100",
+                },
+                {
+                  name: "Git & GitHub",
+                  color:
+                    "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
+                },
+              ].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  whileHover={{ scale: 1.15 }}
+                  className={`px-3 py-1 rounded-full font-medium ${skill.color} shadow-sm cursor-default transition-transform duration-300`}
+                >
+                  {skill.name}
+                </motion.span>
+              ))}
             </div>
           </div>
 
-          {/* Timeline */}
+          {/* Timeline Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-2">Timeline</h3>
-            <ul className="space-y-2">
-              <li>
-                <strong>2022:</strong> Started learning js
+            <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+              My Journey
+            </h3>
+            <ul className="space-y-2 border-l-4 border-primary/30 pl-4">
+              <li className="text-gray-800 dark:text-gray-300">
+                <span className="font-semibold text-primary">2022 — </span>
+                Began learning JavaScript fundamentals.
               </li>
-              <li>
-                <strong>2023:</strong> Started learning React & TypeScript
+              <li className="text-gray-800 dark:text-gray-300">
+                <span className="font-semibold text-primary">2023 — </span>
+                Dived into React and TypeScript ecosystem.
               </li>
-              <li>
-                <strong>2024:</strong> Built personal portfolio website
+              <li className="text-gray-800 dark:text-gray-300">
+                <span className="font-semibold text-primary">2024 — </span>
+                Built and launched my first personal portfolio website.
               </li>
-              <li>
-                <strong>2025:</strong> Python and Django-Rest-Framework
+              <li className="text-gray-800 dark:text-gray-300">
+                <span className="font-semibold text-primary">2025 — </span>
+                Expanded into backend with Python and Django REST Framework.
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

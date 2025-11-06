@@ -1,7 +1,7 @@
 // DownloadButton.jsx
 
 import { SlArrowDownCircle } from "react-icons/sl";
-import pdf from '../../public/CV___for_atiar_rahman.pdf'
+import pdf from '../../public/Md. Atiar Rahman-cv.pdf'
 const DownloadButton = () => {
   const handleDownload = () => {
     const link = document.createElement("a");

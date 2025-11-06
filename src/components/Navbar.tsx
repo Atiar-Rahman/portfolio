@@ -91,7 +91,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <button
           onClick={() => changeTheme(theme === "light" ? "dark" : "light")}
-          className="px-4 py-2 rounded bg-gray-600 text-white"
+          className="px-4 py-2 rounded bg-gray-600 text-white cursor-pointer"
         >
           Toggle Theme (Current: {theme})
         </button>
