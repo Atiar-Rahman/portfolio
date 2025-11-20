@@ -1,5 +1,6 @@
 import AboutMe from "../components/AboutMe";
 import ContactSection from "../components/ContactSection";
+import Education from "../components/Education";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import Projects from "../components/Projects";
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             <HeroSection/>
             <AboutMe/>
+            <Education/>
             <Skills/>
             <Projects/>
             <ContactSection/>

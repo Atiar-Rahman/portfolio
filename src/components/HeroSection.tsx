@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import Animation from "./Animation";
 // If your image is in /public, no need to import — just use src="/atiar.png"
 // Otherwise, keep your import: import avatar from '../../public/atiar.png';
 
@@ -44,11 +45,7 @@ const HeroSection = () => {
 
       {/* Image Section */}
       <div className="flex justify-center">
-        <img
-          src="/atiar.png"
-          alt="Md. Atiar Rahman - Web Developer"
-          className="w-full max-w-sm md:max-w-md rounded-2xl shadow-lg hover:scale-105 transition-transform"
-        />
+        <Animation/>
       </div>
     </section>
   );

@@ -56,9 +56,49 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/about-me"
+                className={({ isActive }) =>
+                  isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+                }
+              >
+                About Me
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/education"
+                className={({ isActive }) =>
+                  isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+                }
+              >
+                Education
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/skill"
+                className={({ isActive }) =>
+                  isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+                }
+              >
+                Skill
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+                }
+              >
+                Projects
+              </NavLink>
+            </li>
           </ul>
         </div>
-        <h1 className="text-2xl font-bold">Portfolio</h1>
+        <h1 className="text-2xl font-bold">Md. Atiar Rahman</h1>
       </div>
 
       {/* Center (Desktop Menu) */}
@@ -82,6 +122,46 @@ const Navbar = () => {
               }
             >
               Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about-me"
+              className={({ isActive }) =>
+                isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+              }
+            >
+              About Me
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/education"
+              className={({ isActive }) =>
+                isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+              }
+            >
+              Education
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/skill"
+              className={({ isActive }) =>
+                isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+              }
+            >
+              Skill
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                isActive ? "bg-red-400 text-white rounded-md px-2" : ""
+              }
+            >
+              Projects
             </NavLink>
           </li>
         </ul>

@@ -5,7 +5,7 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className="py-20 px-6 md:px-16 bg-base-100 dark:bg-gray-400 text-base-900 dark:text-black transition-colors duration-300"
+      className="py-20 px-6 md:px-16 bg-base-100 text-base-900 dark:text-black transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Profile Image */}
@@ -35,7 +35,7 @@ const AboutMe = () => {
           </h2>
 
           {/* Intro Paragraph */}
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          <p className="text-lg leading-relaxed text-base-400">
             Hello! I'm <span className="font-semibold">Md. Atiar Rahman</span>,
             a passionate Web Developer who loves crafting dynamic, responsive,
             and modern web applications. I specialize in{" "}
@@ -53,17 +53,26 @@ const AboutMe = () => {
             Computer science and Engineering. I am also successfully complete
             Porgramming hero course.
           </p>
-          
 
           {/* Skills Section */}
           <div>
-            <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
+            <h3 className="text-2xl font-semibold mb-3 text-base-400">
               Core Skills
             </h3>
             <div className="flex flex-wrap gap-3">
               {[
                 {
+                  name: "HTML5",
+                  color:
+                    "bg-cyan-200 text-cyan-900 dark:bg-cyan-800 dark:text-cyan-100",
+                },
+                {
                   name: "React",
+                  color:
+                    "bg-blue-200 text-blue-900 dark:bg-blue-800 dark:text-blue-100",
+                },
+                {
+                  name: "JavaScripts(ES-6)",
                   color:
                     "bg-blue-200 text-blue-900 dark:bg-blue-800 dark:text-blue-100",
                 },
@@ -83,12 +92,32 @@ const AboutMe = () => {
                     "bg-emerald-200 text-emerald-900 dark:bg-emerald-800 dark:text-emerald-100",
                 },
                 {
+                  name: "CSS3",
+                  color:
+                    "bg-cyan-200 text-cyan-900 dark:bg-cyan-800 dark:text-cyan-100",
+                },
+                {
                   name: "Tailwind CSS",
                   color:
                     "bg-cyan-200 text-cyan-900 dark:bg-cyan-800 dark:text-cyan-100",
                 },
                 {
                   name: "Git & GitHub",
+                  color:
+                    "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
+                },
+                {
+                  name: "Daysui and Bootstrap",
+                  color:
+                    "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
+                },
+                {
+                  name: "OOP",
+                  color:
+                    "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
+                },
+                {
+                  name: "DataStructure and Algorithm",
                   color:
                     "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-200",
                 },
@@ -102,31 +131,6 @@ const AboutMe = () => {
                 </motion.span>
               ))}
             </div>
-          </div>
-
-          {/* Timeline Section */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
-              My Journey
-            </h3>
-            <ul className="space-y-2 border-l-4 border-primary/30 pl-4">
-              <li className="text-gray-800 dark:text-gray-300">
-                <span className="font-semibold text-primary">2022 — </span>
-                Began learning JavaScript fundamentals.
-              </li>
-              <li className="text-gray-800 dark:text-gray-300">
-                <span className="font-semibold text-primary">2023 — </span>
-                Dived into React and TypeScript ecosystem.
-              </li>
-              <li className="text-gray-800 dark:text-gray-300">
-                <span className="font-semibold text-primary">2024 — </span>
-                Built and launched my first personal portfolio website.
-              </li>
-              <li className="text-gray-800 dark:text-gray-300">
-                <span className="font-semibold text-primary">2025 — </span>
-                Expanded into backend with Python and Django REST Framework.
-              </li>
-            </ul>
           </div>
         </motion.div>
       </div>
