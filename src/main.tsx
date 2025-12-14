@@ -7,7 +7,9 @@ import "./index.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <AppRouter />   
+     <div className="container mx-auto">
+        <AppRouter />  
+      </div> 
     </BrowserRouter>
   </StrictMode>
 );

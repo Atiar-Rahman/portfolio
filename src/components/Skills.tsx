@@ -1,132 +1,143 @@
-import { FaReact, FaDatabase, FaPython } from "react-icons/fa";
+import { motion } from "framer-motion";
+import type { JSX } from "react";
+import {
+  FaReact,
+  FaDatabase,
+  FaPython,
+  FaGithub,
+} from "react-icons/fa";
 import { SiDjango } from "react-icons/si";
-import {motion} from 'motion/react'
-import { FaGithub } from "react-icons/fa6";
-const Skills = () => {
+
+type Skill = {
+  name: string;
+  icon: JSX.Element;
+  color: string;
+  percentage: number;
+};
+
+const skills: Skill[] = [
+  {
+    name: "React",
+    icon: <FaReact />,
+    color: "bg-blue-500",
+    percentage: 75,
+  },
+  {
+    name: "Database",
+    icon: <FaDatabase />,
+    color: "bg-purple-500",
+    percentage: 50,
+  },
+  {
+    name: "Python",
+    icon: <FaPython />,
+    color: "bg-yellow-500",
+    percentage: 60,
+  },
+  {
+    name: "Django",
+    icon: <SiDjango />,
+    color: "bg-green-700",
+    percentage: 55,
+  },
+  {
+    name: "GitHub",
+    icon: <FaGithub />,
+    color: "bg-gray-800",
+    percentage: 60,
+  },
+];
+
+const badges = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "MongoDB",
+  "Python",
+  "Django",
+  "MySQL",
+  "JWT Authentication",
+  "Django REST Framework",
+];
+
+const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-16 bg-base-100">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10">My Skills</h2>
+    <section id="skills" className="py-20 bg-base-100">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold mb-12"
+        >
+          My Skills
+        </motion.h2>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* React */}
-          <motion.div
-            whileHover={{ scale: 1.5 }}
-            className="p-6 bg-base-100 shadow-lg rounded-xl"
-          >
-            <FaReact className="text-blue-500 text-5xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">React</h3>
-            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
-              <div className="bg-blue-500 h-3 rounded-full w-[75%]"></div>
-            </div>
-            {/* <p className="mt-2 text-sm">75%</p> */}
-          </motion.div>
+        {/* Skill Cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="p-6 bg-white dark:bg-base-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all"
+            >
+              <div className="text-5xl mx-auto mb-4 text-center text-primary">
+                {skill.icon}
+              </div>
 
-          {/* Database */}
-          <motion.div
-            whileHover={{ scale: 1.5 }}
-            className="p-6 bg-base-100 shadow-lg rounded-xl"
-          >
-            <FaDatabase className="text-purple-500 text-5xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">Database</h3>
-            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
-              <div className="bg-purple-500 h-3 rounded-full w-[50%]"></div>
-            </div>
-            {/* <p className="mt-2 text-sm">50%</p> */}
-          </motion.div>
+              <h3 className="text-xl font-semibold mb-4">
+                {skill.name}
+              </h3>
 
-          {/* Python */}
-          <motion.div
-            whileHover={{ scale: 1.5 }}
-            className="p-6 bg-base-100 shadow-lg rounded-xl"
-          >
-            <FaPython className="text-yellow-500 text-5xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">Python</h3>
-            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
-              <div className="bg-yellow-500 h-3 rounded-full w-[60%]"></div>
-            </div>
-            {/* <p className="mt-2 text-sm">60%</p> */}
-          </motion.div>
+              {/* Progress Bar */}
+              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.percentage}%` }}
+                  transition={{ duration: 1 }}
+                  className={`h-3 ${skill.color}`}
+                />
+              </div>
 
-          {/* Django */}
-          <motion.div
-            whileHover={{ scale: 1.5 }}
-            className="p-6 bg-base-100 shadow-lg rounded-xl"
-          >
-            <SiDjango className="text-green-700 text-5xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">Django</h3>
-            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
-              <div className="bg-green-700 h-3 rounded-full w-[55%]"></div>
-            </div>
-            {/* <p className="mt-2 text-sm">55%</p> */}
-          </motion.div>
-
-          {/* Github */}
-          <motion.div
-            whileHover={{ scale: 1.5 }}
-            className="p-6 bg-base-100 shadow-lg rounded-xl"
-          >
-            <FaGithub className="text-green-700 text-5xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">Github</h3>
-            <div className="w-full bg-gray-200 h-3 rounded-full mt-4">
-              <div className="bg-green-700 h-3 rounded-full w-[60%]"></div>
-            </div>
-            {/* <p className="mt-2 text-sm">60%</p> */}
-          </motion.div>
-        </div>
+              <p className="mt-2 text-sm font-medium">
+                {skill.percentage}%
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Badges */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full"
-          >
-            HTML
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-green-100 text-green-600 rounded-full"
-          >
-            CSS
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-yellow-100 text-yellow-600 rounded-full"
-          >
-            JavaScript
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-red-100 text-red-600 rounded-full"
-          >
-            MongoDB
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full"
-          >
-            Python
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-green-100 text-green-700 rounded-full"
-          >
-            Django
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-green-100 text-green-700 rounded-full"
-          >
-            MySql
-          </motion.span>
-          <motion.span
-            whileHover={{ scale: 1.5 }}
-            className="px-4 py-2 bg-green-100 text-green-700 rounded-full"
-          >
-            JWT Authentication
-          </motion.span>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 flex flex-wrap justify-center gap-3"
+        >
+          {badges.map((badge, i) => (
+            <motion.span
+              key={i}
+              whileHover={{ scale: 1.15 }}
+              className="px-4 py-2 rounded-full bg-primary/10 text-primary font-medium shadow-sm cursor-default"
+            >
+              {badge}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

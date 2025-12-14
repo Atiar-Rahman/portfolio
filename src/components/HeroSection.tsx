@@ -13,8 +13,7 @@ const HeroSection = () => {
           Hi, I am <br /> <span className="text-primary">Md. Atiar Rahman</span>
         </h1>
         <p className="text-base md:text-xl text-base-600 max-w-lg mx-auto md:mx-0">
-          A passionate Web Developer specializing in React, TypeScript, and
-          Python REST API.
+          Final-year CSE student and aspiring full-stack developer, currently focused on backend development. Skilled in Django, Express.js, React, and REST API development, with strong programming fundamentals.
         </p>
 
         {/* Buttons and Icons */}

@@ -1,6 +1,7 @@
 
 import ContactForm from './ContactForm';
 import DownloadButton from './DownloadButton';
+import pdf from '../../public/CV___for_atiar_rahman1.pdf'
 const ContactSection = () => {
     return (
       <div className="flex flex-col md:flex-row justify-center items-center bg-base-100 text-left pl-4">
@@ -16,7 +17,7 @@ const ContactSection = () => {
           </p>
           <p className="text-xl">
             For more info. here's My
-            <DownloadButton/>
+            <DownloadButton pdf={pdf}/>
           </p>
         </div>
         <div>

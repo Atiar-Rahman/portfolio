@@ -6,6 +6,7 @@ import Education from "../components/Education";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import ProjectDetails from "../pages/ProjectDetails";
 
 const AppRouter = () => {
     return (
@@ -17,6 +18,8 @@ const AppRouter = () => {
                 <Route path="about-me" element={<AboutMe/>}/>
                 <Route path="skill" element={<Skills/>}/>
                 <Route path="projects" element={<Projects/>}/>
+                {/* <Route path="/" element={<Projects />} /> */}
+                <Route path="/projects/:id" element={<ProjectDetails />} />
             </Route>
 
         </Routes>
