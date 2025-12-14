@@ -7,6 +7,7 @@ import { SiJavascript, SiTypescript, SiPython, SiDjango, SiTailwindcss } from "r
 import { BsBootstrap } from "react-icons/bs";
 import { MdOutlineDataObject } from "react-icons/md";
 import type { JSX } from "react";
+import pdf from '../../public/certificate.pdf'
 
 
 
@@ -81,7 +82,7 @@ const skills: Skill[] = [
 
 
 const openPDF = () => {
-  window.open("../../public/certificate.pdf", "_blank"); // public folder এর pdf
+  window.open(pdf, "_blank"); // public folder এর pdf
 };
 const AboutMe: React.FC = () => {
   return (
