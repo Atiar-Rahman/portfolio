@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import hospital from "../../public/hospital.jpeg";
 import hotel from "../../public/hotel.jpeg";
-import api from "../../public/APIs.png";
 import cancer from "../../public/cancer.png";
 import events from "../../public/events.jpeg";
 
@@ -14,7 +13,8 @@ type Project = {
   tech: string[];
   img: string;
   live: string;
-  github: string;
+  githubfrontend: string;
+  githubbackend:string;
 };
 
 const projects: Project[] = [
@@ -26,17 +26,8 @@ const projects: Project[] = [
     tech: ["React", "Django REST API", "MySQL"],
     img: hotel,
     live: "https://stay-bangla-mk4p.vercel.app/",
-    github: "https://github.com/Atiar-Rahman/stay_bangla_client",
-  },
-  {
-    id: "staybangla-api",
-    title: "StayBangla Backend API",
-    desc:
-      "Robust backend service with authentication, CRUD operations, and Swagger documentation.",
-    tech: ["Django REST Framework", "MySQL"],
-    img: api,
-    live: "https://hotel-management-blue-seven.vercel.app/swagger/",
-    github: "https://github.com/Atiar-Rahman/hotel_management",
+    githubfrontend: "https://github.com/Atiar-Rahman/stay_bangla_client",
+    githubbackend: 'https://github.com/Atiar-Rahman/stay_bangla'
   },
   {
     id: "cancer-detection",
@@ -45,8 +36,9 @@ const projects: Project[] = [
       "ML-powered web app predicting cancer risks based on patient symptoms.",
     tech: ["Django", "Machine Learning", "MySQL"],
     img: cancer,
-    live: "https://symtom-based-cancer-detection.onrender.com/",
-    github: "https://github.com/Atiar-Rahman/Symtom_based_Cancer_detection",
+    live: "https://symptombased-cancer-risk-detection.vercel.app/",
+    githubfrontend: "https://github.com/Atiar-Rahman/Symtom_based_Cancer_detection",
+    githubbackend: 'https://github.com/Atiar-Rahman/symptombased_backend'
   },
   {
     id: "events-management",
@@ -56,7 +48,8 @@ const projects: Project[] = [
     tech: ["Django", "MySQL"],
     img: events,
     live: "https://events-management-system-uoyt.onrender.com/",
-    github: "https://github.com/Atiar-Rahman/events",
+    githubfrontend: "https://github.com/Atiar-Rahman/events",
+    githubbackend: ''
   },
   {
     id: "hospital-management",
@@ -64,9 +57,10 @@ const projects: Project[] = [
     desc:
       "Event registration & management platform with admin dashboards.",
     tech: ["Django", "MySQL"],
-    img: events,
-    live: "https://events-management-system-uoyt.onrender.com/",
-    github: "https://github.com/Atiar-Rahman/events",
+    img: hospital,
+    live: "https://hotel-management-blue-seven.vercel.app/swagger/",
+    githubfrontend: "",
+    githubbackend: 'https://github.com/Atiar-Rahman/hotel_management'
   },
 ];
 
@@ -128,11 +122,18 @@ const Projects: React.FC = () => {
                     <FaExternalLinkAlt /> Live
                   </a>
                   <a
-                    href={project.github}
+                    href={project.githubfrontend}
                     target="_blank"
                     className="btn btn-outline btn-sm text-white border-white"
                   >
-                    <FaGithub /> GitHub
+                    <FaGithub /> githubfrontend
+                  </a>
+                  <a
+                    href={project.githubbackend}
+                    target="_blank"
+                    className="btn btn-outline btn-sm text-white border-white"
+                  >
+                    <FaGithub /> githubbackend
                   </a>
                 </div>
               </div>

@@ -176,11 +176,18 @@ const ProjectDetails: React.FC = () => {
                 </a>
 
                 <a
-                    href={project.github}
+                    href={project.githubfrontend}
                     target="_blank"
                     className="btn btn-outline flex items-center gap-2"
                 >
-                    <FaGithub /> GitHub
+                    <FaGithub /> githubfrontend
+                </a>
+                <a
+                    href={project.githubbackend}
+                    target="_blank"
+                    className="btn btn-outline flex items-center gap-2"
+                >
+                    <FaGithub /> githubbackend
                 </a>
             </motion.div>
         </section>

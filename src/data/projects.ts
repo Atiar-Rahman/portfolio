@@ -1,5 +1,5 @@
 import hotel from "../../public/hotel.jpeg";
-import api from "../../public/APIs.png";
+import hospital from "../../public/hospital.jpeg";
 import cancer from "../../public/cancer.png";
 import events from "../../public/events.jpeg";
 export type Project = {
@@ -18,7 +18,8 @@ export type Project = {
 
     img: string;
     live: string;
-    github: string;
+    githubfrontend: string;
+    githubbackend:string;
 };
 
 export const projects: Project[] = [
@@ -50,33 +51,9 @@ export const projects: Project[] = [
 
         img: hotel,
         live: "https://stay-bangla-mk4p.vercel.app/",
-        github: "https://github.com/Atiar-Rahman/stay_bangla_client",
+        githubfrontend: "https://github.com/Atiar-Rahman/stay_bangla_client",
+        githubbackend: 'https://github.com/Atiar-Rahman/stay_bangla'
     },
-
-    {
-        id: "staybangla-api",
-        title: "StayBangla Backend API",
-        shortDesc: "Secure backend with CRUD & Swagger",
-        longDesc:
-            "A robust Django REST API backend featuring authentication, role-based access, and Swagger documentation.",
-
-        features: [
-            "JWT-based authentication",
-            "Role-based access control",
-            "CRUD operations",
-            "Swagger API documentation",
-        ],
-        techStack: ["Django REST Framework", "MySQL", "Swagger"],
-        role: "Backend Developer",
-        duration: "1 Month",
-        category: "Backend API",
-        challenges: ["API security & permission handling"],
-
-        img: api,
-        live: "https://hotel-management-blue-seven.vercel.app/swagger/",
-        github: "https://github.com/Atiar-Rahman/hotel_management",
-    },
-
     {
         id: "cancer-detection",
         title: "Symptom-Based Multi-Cancer Detection Tool",
@@ -104,8 +81,9 @@ export const projects: Project[] = [
         ],
 
         img: cancer,
-        live: "https://symtom-based-cancer-detection.onrender.com/",
-        github: "https://github.com/Atiar-Rahman/Symtom_based_Cancer_detection",
+        live: "https://symptombased-cancer-risk-detection.vercel.app/",
+        githubfrontend: "https://github.com/Atiar-Rahman/symptombased_clinet",
+        githubbackend: 'https://github.com/Atiar-Rahman/symptombased_backend'
     },
 
     {
@@ -129,30 +107,31 @@ export const projects: Project[] = [
 
         img: events,
         live: "https://events-management-system-uoyt.onrender.com/",
-        github: "https://github.com/Atiar-Rahman/events",
+        githubfrontend: "https://github.com/Atiar-Rahman/events",
+        githubbackend:''
     },
 
     {
         id: "hospital-management",
-        title: "Events Management System",
-        shortDesc: "Event registration & management platform",
+        title: "Hospital Management System",
+        shortDesc: "Backend Developement django rest_framework and mysql database",
         longDesc:
-            "A Django-based application for managing events with participant registration, admin dashboards, and reporting features.",
+            "A Django-based application for managing Hospital.",
 
         features: [
-            "Event creation & management",
-            "Participant registration",
-            "Admin dashboard",
-            "Database-driven reports",
+            "hospital doctor added",
+            "patient added",
+            "others"
         ],
-        techStack: ["Django", "MySQL"],
+        techStack: ["Django Rest_framework", "MySQL"],
         role: "Backend Developer",
         duration: "1 Month",
         category: "Web Application",
         challenges: ["Managing relational database design"],
 
-        img: events,
-        live: "https://events-management-system-uoyt.onrender.com/",
-        github: "https://github.com/Atiar-Rahman/events",
+        img: hospital,
+        live: "https://hotel-management-blue-seven.vercel.app/swagger/",
+        githubfrontend: "",
+        githubbackend: 'https://github.com/Atiar-Rahman/hotel_management'
     },
 ];
