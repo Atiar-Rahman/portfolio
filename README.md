@@ -1,5 +1,11 @@
 # React + TypeScript + Vite
 
+## Contact form email setup
+
+The contact form sends messages through EmailJS. Create a free EmailJS account, connect `atiar1709@gmail.com` as an email service, and create a template whose recipient is that address. The template can use `{{user_name}}`, `{{user_email}}`, and `{{message}}`.
+
+Copy `.env.example` to `.env` and enter the Service ID, Template ID, and Public Key from EmailJS. Add the same three environment variables in your deployment provider (for example, Vercel), then redeploy.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

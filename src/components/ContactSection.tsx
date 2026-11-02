@@ -4,7 +4,7 @@ import DownloadButton from './DownloadButton';
 import pdf from '../../public/CV___for_atiar_rahman1.pdf'
 const ContactSection = () => {
     return (
-      <div className="flex flex-col md:flex-row justify-center items-center bg-base-100 text-left pl-4">
+      <section id="contact" className="flex flex-col md:flex-row justify-center items-center bg-base-100 text-left pl-4 mb-10">
         <div>
           <h1 className="mb-4 uppercase text-3xl md:text-6xl font-bold text-lime-800">
             Let's Connect
@@ -24,7 +24,7 @@ const ContactSection = () => {
           <h1 className="text-center my-6 text-2xl font-bold">Contact my Me</h1>
           <ContactForm />
         </div>
-      </div>
+      </section>
     );
 };
 

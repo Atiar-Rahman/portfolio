@@ -4,78 +4,45 @@ import Swal from "sweetalert2";
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!form.current || isSending) return;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // Send form using EmailJS
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form.current!,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          Swal.fire({
-            title: "Message successfully sent",
-            icon: "success",
-            draggable: true
-          });
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          Swal.fire({
-            title: "something error please try again or another way",
-            icon: "error",
-            draggable: true
-          });
-          console.log("FAILED...", error.text);
-        }
-      );
+    if (!serviceId || !templateId || !publicKey) {
+      await Swal.fire({ title: "Email service is not configured yet", text: "Please add the EmailJS environment variables before publishing the form.", icon: "error" });
+      return;
+    }
 
-    // Reset form fields
-    setName("");
-    setEmail("");
-    setMessage("");
+    setIsSending(true);
+    try {
+      await emailjs.sendForm(serviceId, templateId, form.current, { publicKey });
+      form.current.reset();
+      await Swal.fire({ title: "Message sent!", text: "Thank you—I'll get back to you as soon as possible.", icon: "success" });
+    } catch (error) {
+      console.error("EmailJS submission failed:", error);
+      await Swal.fire({ title: "Message was not sent", text: "Please try again or email me directly at atiar1709@gmail.com.", icon: "error" });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div className="w-full md:w-2/3 mx-auto">
-      <form ref={form} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="user_name"
-          className="w-full py-2 px-2 border mb-3 rounded-xl"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          name="user_email"
-          className="w-full py-2 px-2 border mb-3 rounded-xl"
-          placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <textarea
-          name="message"
-          className="w-full py-2 px-2 border mb-3 rounded-xl"
-          placeholder="Your Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        ></textarea>
-        <button className="btn btn-outline w-full rounded-xl" type="submit">Send Message</button>
+      <form ref={form} onSubmit={handleSubmit} className="space-y-3">
+        <input type="hidden" name="to_email" value="atiar1709@gmail.com" />
+        <label className="sr-only" htmlFor="contact-name">Your name</label>
+        <input id="contact-name" type="text" name="user_name" className="w-full rounded-xl border p-3" placeholder="Your name" required />
+        <label className="sr-only" htmlFor="contact-email">Your email address</label>
+        <input id="contact-email" type="email" name="user_email" className="w-full rounded-xl border p-3" placeholder="Your email" required />
+        <label className="sr-only" htmlFor="contact-message">Your message</label>
+        <textarea id="contact-message" name="message" className="min-h-32 w-full rounded-xl border p-3" placeholder="Tell me about your project" required />
+        <button className="btn btn-primary w-full rounded-xl" type="submit" disabled={isSending}>{isSending ? "Sending…" : "Send message"}</button>
       </form>
     </div>
   );

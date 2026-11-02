@@ -1,100 +1,56 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
-// Icons
-import { FaHome, FaUser, FaGraduationCap, FaTools, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
-import { MdDarkMode } from "react-icons/md";
+import { FaBars, FaMoon, FaSun, FaXmark } from "react-icons/fa6";
+import cv from "../../public/CV___for_atiar_rahman1.pdf";
 
 type Theme = "light" | "dark";
 
-const menuItems = [
-  { name: "Home", path: "/", icon: <FaHome /> },
-  { name: "About Me", path: "/about-me", icon: <FaUser /> },
-  { name: "Education", path: "/education", icon: <FaGraduationCap /> },
-  { name: "Skill", path: "/skill", icon: <FaTools /> },
-  { name: "Projects", path: "/projects", icon: <FaProjectDiagram /> },
-  { name: "Contact", path: "/contact", icon: <FaEnvelope /> },
+const navigation = [
+  { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>("light");
 
   const changeTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
   };
 
-  const activeClass =
-    "flex items-center gap-2 bg-red-400 text-white rounded-md px-3 py-1";
-
-  const normalClass =
-    "flex items-center gap-2 px-3 py-1 hover:text-primary";
+  const linkClass = "rounded-lg px-3 py-2 text-sm font-semibold text-base-content/70 transition hover:bg-primary/10 hover:text-primary";
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
-      {/* Left */}
-      <div className="navbar-start">
-        {/* Mobile Menu */}
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            ☰
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
-          >
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    isActive ? activeClass : normalClass
-                  }
-                >
-                  {item.icon}
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+    <header className="sticky top-0 z-50 border-b border-base-300/80 bg-base-100/90 backdrop-blur">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8" aria-label="Main navigation">
+        <a href="/" className="text-lg font-extrabold tracking-tight text-base-content sm:text-xl">Md. Atiar Rahman<span className="text-primary">.</span></a>
+
+        <div className="hidden items-center gap-1 lg:flex">
+          {navigation.map((item) => <a key={item.href} href={item.href} className={linkClass}>{item.label}</a>)}
         </div>
 
-        <h1 className="text-xl md:text-2xl font-bold ml-2">
-          Md. Atiar Rahman
-        </h1>
-      </div>
+        <div className="flex items-center gap-2">
+          <a href={cv} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm hidden rounded-lg sm:inline-flex">Download CV</a>
+          <button type="button" onClick={changeTheme} aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`} className="btn btn-ghost btn-square btn-sm text-lg">
+            {theme === "light" ? <FaMoon /> : <FaSun />}
+          </button>
+          <button type="button" onClick={() => setIsOpen((open) => !open)} aria-label="Toggle navigation menu" aria-expanded={isOpen} className="btn btn-ghost btn-square btn-sm text-lg lg:hidden">
+            {isOpen ? <FaXmark /> : <FaBars />}
+          </button>
+        </div>
+      </nav>
 
-      {/* Center (Desktop Menu) */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal gap-1">
-          {menuItems.map((item) => (
-            <li key={item.name}>
-              <NavLink
-                to={item.path}
-                className={({ isActive }) =>
-                  isActive ? activeClass : normalClass
-                }
-              >
-                {item.icon}
-                {item.name}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Right */}
-      <div className="navbar-end">
-        <button
-          onClick={changeTheme}
-          className="flex items-center gap-2 px-4 py-2 rounded bg-gray-600 text-white"
-        >
-          <MdDarkMode />
-          {theme === "light" ? "Dark" : "Light"}
-        </button>
-      </div>
-    </div>
+      {isOpen && <div className="border-t border-base-300 bg-base-100 px-5 py-4 lg:hidden">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1">
+          {navigation.map((item) => <a key={item.href} href={item.href} onClick={() => setIsOpen(false)} className={linkClass}>{item.label}</a>)}
+          <a href={cv} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm mt-3 rounded-lg">Download CV</a>
+        </div>
+      </div>}
+    </header>
   );
 };
 

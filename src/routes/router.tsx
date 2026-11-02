@@ -7,6 +7,7 @@ import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ProjectDetails from "../pages/ProjectDetails";
+import NotFound from "../pages/NotFound";
 
 const AppRouter = () => {
     return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
                 <Route path="projects" element={<Projects/>}/>
                 {/* <Route path="/" element={<Projects />} /> */}
                 <Route path="/projects/:id" element={<ProjectDetails />} />
+                <Route path="*" element={<NotFound />} />
             </Route>
 
         </Routes>
